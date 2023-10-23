@@ -1,0 +1,44 @@
+public class FactorialCalculator {
+    public static long calculateFactorial(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("Factorial is not defined for negative numbers.");
+        } else if (n == 0 || n == 1) {
+            return 1;
+        } else {
+            long factorial = 1;
+            for (int i = 2; i <= n; i++) {
+                factorial *= i;
+            }
+            return factorial;
+        }
+    }
+
+    public static void main(String[] args) {
+        int number = 5; // Change this to the number for which you want to calculate the factorial
+
+        if (number < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+        } else {
+            long result = calculateFactorial(number);
+            System.out.println("Factorial of " + number + " is: " + result);
+        }
+    }
+}
+testcase:
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class FactorialCalculatorTest {
+
+    @Test
+    public void testCalculateFactorial() {
+        assertEquals(1, FactorialCalculator.calculateFactorial(0));
+        assertEquals(1, FactorialCalculator.calculateFactorial(1));
+        assertEquals(2, FactorialCalculator.calculateFactorial(2));
+        assertEquals(6, FactorialCalculator.calculateFactorial(3));
+        assertEquals(24, FactorialCalculator.calculateFactorial(4));
+        assertEquals(120, FactorialCalculator.calculateFactorial(5));
+        assertEquals(720, FactorialCalculator.calculateFactorial(6));
+    }
+
+}
