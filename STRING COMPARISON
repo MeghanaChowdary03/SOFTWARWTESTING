@@ -1,0 +1,30 @@
+public class StringComparison {
+    public static void main(String[] args) {
+        String str1 = "Hello";
+        String str2 = "World";
+
+        if (str1.equals(str2)) {
+            System.out.println("The strings are equal.");
+        } else {
+            System.out.println("The strings are not equal.");
+        }
+    }
+}
+LOGIC CODE:
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class StringComparisonTest {
+
+  @Test
+  public void testStringComparison() {
+
+    String string1 = "Hello";
+    String string2 = "Hello";
+
+    assertEquals(string1, string2);
+
+  }
+
+}
