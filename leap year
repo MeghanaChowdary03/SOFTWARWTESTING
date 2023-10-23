@@ -1,0 +1,38 @@
+public class LeapYear {
+    public static boolean isLeapYear(int year) {
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                return year % 400 == 0;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+        int yearToCheck = 2000; // Change this to the year you want to check
+
+        if (isLeapYear(yearToCheck)) {
+            System.out.println(yearToCheck + " is a leap year.");
+        } else {
+            System.out.println(yearToCheck + " is not a leap year.");
+        }
+    }
+}
+TESTCASE
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class LeapYearTest {
+
+    @Test
+    public void testIsLeapYear() {
+        // Test leap years
+        assertEquals(true, LeapYear.isLeapYear(2000));
+        assertEquals(true, LeapYear.isLeapYear(2024));
+
+      
+    }
+}
+
