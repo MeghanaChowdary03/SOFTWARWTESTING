@@ -1,0 +1,69 @@
+logic code:
+import java.util.Scanner;
+
+public class DaysConverter {
+
+  public static void main(String[] args) {
+    
+    Scanner scanner = new Scanner(System.in);
+    
+    System.out.print("Enter number of days: ");
+    int days = scanner.nextInt();
+    
+    int years = days / 365;
+    days = days % 365;
+    
+    int weeks = days / 7;
+    days = days % 7;
+    
+    System.out.println(days + " days = " + years + " years, " + weeks + " weeks, " + days + " days");
+    
+  }
+
+}
+testcase:
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class DaysConverterTest {
+
+    @Test
+    public void testConvertDays() {
+        // Given
+        int numberOfDays = 1000;
+
+        // When
+        DaysConversionResult result = DaysConverter.convertDays(numberOfDays);
+
+        // Then
+        assertEquals(2, result.getYears());
+        assertEquals(38, result.getWeeks());
+        assertEquals(4, result.getDays());
+    }
+
+
+}
+result:
+public class DaysConversionResult{
+    private final int years;
+    private final int weeks;
+    private final int days;
+
+    public DaysConversionResult(int years, int weeks, int days) {
+        this.years = years;
+        this.weeks = weeks;
+        this.days = days;
+    }
+
+    public int getYears() {
+        return years;
+    }
+
+    public int getWeeks() {
+        return weeks;
+    }
+
+    public int getDays() {
+        return days;
+    }
+}
