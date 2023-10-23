@@ -1,0 +1,41 @@
+public class SimpleInterestCalculator {
+    public static double calculateSimpleInterest(double principal, double rate, int time) {
+        if (rate < 0) {
+            throw new IllegalArgumentException("Interest rate cannot be negative.");
+        }
+
+        return (principal * rate * time) / 100.0;
+    }
+
+    public static void main(String[] args) {
+        double principal = 10000.0; // Change this to the principal amount
+        double rate = 12.0;         // Change this to the interest rate
+        int time = 1;              // Change this to the time in years
+
+        if (rate < 0) {
+            System.out.println("Interest rate cannot be negative.");
+        } else {
+            double interest = calculateSimpleInterest(principal, rate, time);
+            System.out.println("Simple Interest: " + interest);
+        }
+    }
+}
+TESTCASE:
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class SimpleInterestCalculatorTest {
+
+    @Test
+    public void testCalculateSimpleInterest() {
+        // Test for senior citizens with 12% interest
+        assertEquals(1200.0, SimpleInterestCalculator.calculateSimpleInterest(10000.0, 12.0, 1), 0.01);
+        assertEquals(2400.0, SimpleInterestCalculator.calculateSimpleInterest(20000.0, 12.0, 1), 0.01);
+        
+        // Test for others with 10% interest
+        assertEquals(1000.0, SimpleInterestCalculator.calculateSimpleInterest(10000.0, 10.0, 1), 0.01);
+        assertEquals(2000.0, SimpleInterestCalculator.calculateSimpleInterest(20000.0, 10.0, 1), 0.01);
+    }
+
+ 
+}
