@@ -1,0 +1,23 @@
+public class EX1 {
+    public static String reverseString(String str) {
+        return new StringBuilder(str).reverse().toString();
+    }
+
+    public static void main(String[] args) {
+        String inputString = "Hello, World!";
+        String reversedStr = reverseString(inputString);
+        System.out.println("Reversed String: " + reversedStr);
+    }
+}
+TESTCASE
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+
+public class EX1Test {
+
+    @Test
+    public void testReverseString() {
+        String reversedStr = EX1.reverseString("Hello");
+        assertEquals("olTFCleH", reversedStr);
+    }
+}
