@@ -1,0 +1,29 @@
+LOGIC CODE
+public class VotingSystem {
+    public static boolean isEligibleToVote(int age) {
+        return age >= 18;
+    }
+
+    public static void main(String[] args) {
+        int age = 20;  // You can change the age value here.
+        
+        if (isEligibleToVote(age)) {
+            System.out.println("You are eligible to vote.");
+        } else {
+            System.out.println("You are not eligible to vote.");
+        }
+    }
+}
+
+TESTCASE CODE
+import static org.junit.Assert.*;
+import org.junit.Test;
+
+public class VotingSystemTest {
+
+    @Test
+    public void testVotingEligibility() {
+        assertTrue(VotingSystem.isEligibleToVote(20)); 
+        assertFalse(VotingSystem.isEligibleToVote(15)); 
+    }
+}
